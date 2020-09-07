@@ -77,7 +77,9 @@ public class Stune implements LModule {
     }
 
     void showdialog(Context context,String groupname){
+        ScrollView scrollView=new ScrollView(context);
         LinearLayout linearLayout=new LinearLayout(context);
+        scrollView.addView(linearLayout);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         {
             TextView textView = new TextView(context);
@@ -129,7 +131,7 @@ public class Stune implements LModule {
         new AlertDialog.Builder(context)
                 .setTitle("编辑“"+node2name(groupname)+"”的CPU组配置")
                 .setNegativeButton("取消",null)
-                .setView(linearLayout)
+                .setView(scrollView)
                 .setPositiveButton("保存", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
