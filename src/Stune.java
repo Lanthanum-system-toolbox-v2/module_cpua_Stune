@@ -35,7 +35,7 @@ public class Stune implements LModule {
 
     @Override
     public View init(Context context) {
-        if(!ShellUtil.run("if [ -d /dev/stune ]\nthen\necho true\nfi\n",true).equals("true"))
+        if(!ShellUtil.run("if [ -e /dev/stune/schedtune.boost ]\nthen\necho true\nfi\n",true).equals("true"))
             return null;
         no_override_available=ShellUtil.run("if [ -e /dev/stune/schedtune.sched_boost_no_override ]\nthen\necho true\nfi\n",true).equals("true");
         //boolean colocate_available=ShellUtil.run("if [ -e /dev/stune/schedtune.colocate ]\nthen\necho true\nfi\n",true).equals("true");
